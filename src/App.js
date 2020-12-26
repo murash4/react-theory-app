@@ -22,10 +22,16 @@ class App extends Component {
 	}
 
 	changeTitleHandler = () => {
-		console.log(111)
+		const oldTitle = this.state.pageTitle
+		const newTitle = oldTitle + ' changed'
+
+		this.setState({
+			pageTitle: newTitle
+		})
 	}
 
 	render () {
+		console.log(1111)
 		const divStyle = {
 			textAlign: 'center'
 		}
