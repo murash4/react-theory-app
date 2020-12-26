@@ -27,6 +27,12 @@ class App extends Component {
 		})
 	}
 
+	handleInput = (event) => {
+		this.setState({
+			pageTitle: event.target.value
+		})
+	}
+
 	render () {
 		const divStyle = {
 			textAlign: 'center'
@@ -37,6 +43,7 @@ class App extends Component {
 		return (
 			<div style={ divStyle }>
 				<h1>{ this.state.pageTitle }</h1>
+				<input type="text" onChange={ this.handleInput } />
 				<button onClick={ this.changeTitleHandler.bind(this, 'Changed') }>Change title</button>
 				<Car
 					name={ cars[0].name }
