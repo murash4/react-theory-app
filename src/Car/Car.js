@@ -1,7 +1,7 @@
 // eslint-disable-next-line
-export default () => (
+export default props => (
 	<div>
-		<p>This is car component</p>
-		<p>Number: <strong>{ Math.round(Math.random() * 100) }</strong></p>
+		<h3>Car name: { props.name }</h3>
+		<p>Year: <strong>{ props.year }</strong></p>
 	</div>
 )
