@@ -19,7 +19,7 @@ class App extends Component {
 			}
 		],
 		pageTitle: 'React components',
-		showCars: false
+		showCars: true
 	}
 
 	onChangeName (name, index) {
@@ -53,9 +53,14 @@ class App extends Component {
 				<h1>{ this.state.pageTitle }</h1>
 				<button onClick={ this.toggleCarsHandler }>Toggle cars</button>
 
-				{
-					this.state.showCars
-						? this.state.cars.map((car, key) => (
+				<div style={{
+					width: 400,
+					margin: 'auto',
+					paddingTop: '20px'
+				}}>
+					{
+						this.state.showCars
+							? this.state.cars.map((car, key) => (
 								<Car
 									key={ key }
 									name={ car.name }
@@ -64,8 +69,9 @@ class App extends Component {
 									onDelete={ this.deleteHandler.bind(this, key) }
 								/>
 							))
-						: null
-				}
+							: null
+					}
+				</div>
 			</div>
 		)
 	}
