@@ -1,4 +1,4 @@
-import './Car.css'
+import './Car.scss'
 import Radium from 'radium'
 
 const Car = props => {
