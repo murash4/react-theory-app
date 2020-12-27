@@ -2,32 +2,11 @@ import React from 'react'
 import './Car.scss'
 
 class Car extends React.Component {
-	shouldComponentUpdate (nextProps, nextState) {
-		console.log('Car shouldComponentUpdate', nextProps, nextState)
-		return nextProps.name.trim() !== this.props.name
-	}
-
-	static getDerivedStateFromProps (nextProps, prevState) {
-		console.log('Car getDerivedStateFromProps', nextProps, prevState)
-
-		return prevState
-	}
-
-	getSnapshotBeforeUpdate(prevProps, prevState) {
-		console.log('Car getSnapshotBeforeUpdate', prevProps, prevState)
-		return true
-	}
-
-	componentDidlUpdated () {
-		console.log('Car componentDidlUpdate')
-	}
-
-	componentWillUnmount() {
-		console.log('Car componentWillUnmount')
-	}
-
 	render () {
-		console.log('car render')
+		if (Math.random() > 0.7) {
+			throw new Error('Car random failed')
+		}
+
 		const inputClasses = ['input']
 
 		if (this.props.name) {

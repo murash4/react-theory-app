@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import classes from './App.scss'
 import Car from './Car/Car'
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
 
 class App extends Component {
 	constructor (props) {
@@ -47,17 +48,7 @@ class App extends Component {
 			showCars: !this.state.showCars
 		})
 	}
-
-	componentWillMount () {
-		console.log('App componentWillMount')
-	}
-
-	componentDidMount () {
-		console.log('App componentDidMount')
-	}
-
 	render () {
-		console.log('App render')
 		const divStyle = {
 			textAlign: 'center'
 		}
@@ -76,13 +67,16 @@ class App extends Component {
 					{
 						this.state.showCars
 							? this.state.cars.map((car, key) => (
-								<Car
+								<ErrorBoundary
 									key={ key }
-									name={ car.name }
-									year={ car.year }
-									onChangeName={ event => this.onChangeName(event.target.value, key) }
-									onDelete={ this.deleteHandler.bind(this, key) }
-								/>
+								>
+									<Car
+										name={ car.name }
+										year={ car.year }
+										onChangeName={ event => this.onChangeName(event.target.value, key) }
+										onDelete={ this.deleteHandler.bind(this, key) }
+									/>
+								</ErrorBoundary>
 							))
 							: null
 					}
