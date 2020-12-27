@@ -2,20 +2,23 @@ import React from 'react'
 import './Car.scss'
 
 class Car extends React.Component {
-	componentWillReceiveProps (nextProps) {
-		console.log('Car componentWillReceiveProps', nextProps)
-	}
-
 	shouldComponentUpdate (nextProps, nextState) {
 		console.log('Car shouldComponentUpdate', nextProps, nextState)
 		return nextProps.name.trim() !== this.props.name
 	}
 
-	componentWillUpdate (nextProps, nextState) {
-		console.log('Car componentWillUpdate', nextProps, nextState)
+	static getDerivedStateFromProps (nextProps, prevState) {
+		console.log('Car getDerivedStateFromProps', nextProps, prevState)
+
+		return prevState
 	}
 
-	componentDidlUpdate () {
+	getSnapshotBeforeUpdate(prevProps, prevState) {
+		console.log('Car getSnapshotBeforeUpdate', prevProps, prevState)
+		return true
+	}
+
+	componentDidlUpdated () {
 		console.log('Car componentDidlUpdate')
 	}
 
