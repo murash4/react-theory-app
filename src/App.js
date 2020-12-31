@@ -14,6 +14,14 @@ class App extends Component {
 				{
 					name: 'Ford',
 					year: 2018
+				},
+				{
+					name: 'Audi',
+					year: 2010
+				},
+				{
+					name: 'Mazda',
+					year: 2013
 				}
 			],
 			pageTitle: 'React components',
@@ -68,6 +76,7 @@ class App extends Component {
 									key={ key }
 								>
 									<Car
+										index={ key }
 										name={ car.name }
 										year={ car.year }
 										onChangeName={ event => this.onChangeName(event.target.value, key) }
