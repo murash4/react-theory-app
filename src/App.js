@@ -2,6 +2,7 @@ import { Component } from 'react'
 import classes from './App.scss'
 import Cars from './Cars/Cars'
 import About from './About/About'
+import { Route } from 'react-router-dom'
 
 class App extends Component {
 	render () {
@@ -23,11 +24,14 @@ class App extends Component {
 				</nav>
 				<hr />
 
-				<h1>{ this.props.title }</h1>
-
+				<Route
+					path="/"
+					exact
+					render={ () => <h1>Home page</h1> }
+				/>
 				<About />
 
-				<Cars props={ this.props } />
+				<Cars />
 			</div>
 		)
 	}
