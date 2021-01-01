@@ -15,13 +15,31 @@ class App extends Component {
 				<nav className="nav">
 					<ul className="nav__ul">
 						<li className="nav__li">
-							<NavLink to="/">Home</NavLink>
+							<NavLink
+								to="/"
+								exact
+								className="nav__link"
+								activeClassName="nav__link--active"
+							>Home</NavLink>
 						</li>
 						<li className="nav__li">
-							<NavLink to="/about">About</NavLink>
+							<NavLink
+								to="/about"
+								className="nav__link"
+								activeStyle={{
+									color: 'blue'
+								}}
+							>About</NavLink>
 						</li>
 						<li className="nav__li">
-							<NavLink to="/cars">Cars</NavLink>
+							<NavLink
+								to={{
+									pathName: '/cars',
+									search: '?a=1&b=2',
+									hash: 'wfm-hash'
+								}}
+								className="nav__link"
+							>Cars</NavLink>
 						</li>
 					</ul>
 				</nav>

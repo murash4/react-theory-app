@@ -21,3 +21,15 @@
     margin-right: 0;
   }
 }
+
+.nav__link {
+  &.active {
+    font-weight: bold;
+    color: red;
+  }
+}
+
+.nav__link--active {
+  font-weight: bold;
+  color: red;
+}
