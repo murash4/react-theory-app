@@ -17,8 +17,11 @@ class App extends Component {
 						<li className="nav__li">
 							<a href="/">Home</a>
 						</li>
-						<li>
+						<li className="nav__li">
 							<a href="/about">About</a>
+						</li>
+						<li className="nav__li">
+							<a href="/cars">Cars</a>
 						</li>
 					</ul>
 				</nav>
@@ -29,9 +32,18 @@ class App extends Component {
 					exact
 					render={ () => <h1>Home page</h1> }
 				/>
-				<About />
 
-				<Cars />
+				<Route
+					path="/about"
+					exact
+					component={ About }
+				/>
+
+				<Route
+					path="/cars"
+					exact
+					render={ () => <Cars /> }
+				/>
 			</div>
 		)
 	}
