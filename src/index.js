@@ -3,11 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom'
+
+const application = (
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+)
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App title={ 'Title from props' } />
-  </React.StrictMode>,
+  application,
   document.getElementById('root')
 );
 
