@@ -24,7 +24,11 @@ class App extends Component {
 						</li>
 						<li className="nav__li">
 							<NavLink
-								to="/about"
+								to={{
+									pathname: '/about',
+									search: '?a=1&b=2',
+									hash: 'wfm-hash'
+								}}
 								className="nav__link"
 								activeStyle={{
 									color: 'blue'
@@ -33,11 +37,7 @@ class App extends Component {
 						</li>
 						<li className="nav__li">
 							<NavLink
-								to={{
-									pathName: '/cars',
-									search: '?a=1&b=2',
-									hash: 'wfm-hash'
-								}}
+								to="/cars"
 								className="nav__link"
 							>Cars</NavLink>
 						</li>
@@ -53,14 +53,12 @@ class App extends Component {
 
 				<Route
 					path="/about"
-					exact
 					component={ About }
 				/>
 
 				<Route
 					path="/cars"
-					exact
-					render={ () => <Cars /> }
+					component={ Cars }
 				/>
 			</div>
 		)

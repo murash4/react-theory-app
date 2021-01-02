@@ -3,28 +3,24 @@ import Car from '../Car/Car'
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 
 class Cars extends Component {
-	constructor (props) {
-		super(props)
-
-		this.state = {
-			cars: [
-				{
-					name: 'Ford',
-					year: 2018
-				},
-				{
-					name: 'Audi',
-					year: 2010
-				},
-				{
-					name: 'Mazda',
-					year: 2013
-				}
-			],
-			pageTitle: 'React components',
-			showCars: true,
-			clicked: false
-		}
+	state = {
+		cars: [
+			{
+				name: 'Ford',
+				year: 2018
+			},
+			{
+				name: 'Audi',
+				year: 2010
+			},
+			{
+				name: 'Mazda',
+				year: 2013
+			}
+		],
+		pageTitle: 'React components',
+		showCars: true,
+		clicked: false
 	}
 
 	onChangeName (name, index) {
@@ -47,6 +43,11 @@ class Cars extends Component {
 			showCars: !this.state.showCars
 		})
 	}
+
+	goToHomePage = () => {
+		this.props.history.push('/')
+	}
+
 	render () {
 		return (
 			<div style={{
@@ -54,6 +55,8 @@ class Cars extends Component {
 				margin: 'auto',
 				paddingTop: '20px'
 			}}>
+				<button className="primary" onClick={ this.goToHomePage }>На главную</button>
+				<hr />
 				{
 					this.state.showCars
 						? this.state.cars.map((car, key) => (
