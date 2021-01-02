@@ -2,7 +2,7 @@ import { Component } from 'react'
 import classes from './App.scss'
 import Cars from './Cars/Cars'
 import About from './About/About'
-import { Route, NavLink, Switch } from 'react-router-dom'
+import { Route, NavLink, Switch, Redirect } from 'react-router-dom'
 import CarDetail from './CarDetail/CarDetail'
 
 class App extends Component {
@@ -26,9 +26,9 @@ class App extends Component {
 						<li className="nav__li">
 							<NavLink
 								to={{
-									pathname: '/about',
-									search: '?a=1&b=2',
-									hash: 'wfm-hash'
+									pathname: '/about'
+									// search: '?a=1&b=2',
+									// hash: 'wfm-hash'
 								}}
 								className="nav__link"
 								activeStyle={{
@@ -67,6 +67,13 @@ class App extends Component {
 					<Route
 						path="/cars"
 						component={ Cars }
+					/>
+
+					{/*<Route*/}
+					{/*	render={ () => <h1 style={{ color: 'red' }}>404 not found</h1> }*/}
+					{/*/>*/}
+					<Redirect
+						to={ '/' }
 					/>
 				</Switch>
 
