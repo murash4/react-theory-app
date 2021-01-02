@@ -6,6 +6,10 @@ import { Route, NavLink, Switch, Redirect } from 'react-router-dom'
 import CarDetail from './CarDetail/CarDetail'
 
 class App extends Component {
+	state = {
+		isLoggedIn: false
+	}
+
 	render () {
 		const divStyle = {
 			textAlign: 'center'
@@ -44,7 +48,17 @@ class App extends Component {
 						</li>
 					</ul>
 				</nav>
+
 				<hr />
+
+				{
+					!this.state.isLoggedIn
+					? <div>
+							<button onClick={ () => this.setState({ isLoggedIn: true }) }>Вход</button>
+							<hr />
+						</div>
+					: null
+				}
 
 				<Switch>
 					<Route
@@ -53,10 +67,14 @@ class App extends Component {
 						render={ () => <h1>Home page</h1> }
 					/>
 
-					<Route
-						path="/about"
-						component={ About }
-					/>
+					{
+						this.state.isLoggedIn
+						? <Route
+								path="/about"
+								component={ About }
+							/>
+						: null
+					}
 
 					<Route
 						path="/cars/:name"
