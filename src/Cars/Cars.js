@@ -74,6 +74,7 @@ class Cars extends Component {
 						))
 						: null
 				}
+				<hr />
 			</div>
 		)
 	}
