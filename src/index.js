@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import rootReducer from './redux/rootReducer'
+import reduxThunk from 'redux-thunk'
 
 // function loggerMiddleware (store) {
 //   return function (next) {
@@ -26,7 +27,10 @@ const loggerMiddleware = store => next => action => {
   return result
 }
 
-const store = createStore(rootReducer, applyMiddleware(loggerMiddleware))
+const store = createStore(rootReducer, applyMiddleware(
+  loggerMiddleware,
+  reduxThunk
+))
 
 const application = (
   <React.StrictMode>
