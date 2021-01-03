@@ -4,6 +4,7 @@ import Cars from './Cars/Cars'
 import About from './About/About'
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom'
 import CarDetail from './CarDetail/CarDetail'
+import CounterNew from "./CounterNew/CounterNew";
 
 class App extends Component {
 	state = {
@@ -46,6 +47,12 @@ class App extends Component {
 								className="nav__link"
 							>Cars</NavLink>
 						</li>
+						<li className="nav__li">
+							<NavLink
+								to="/counter"
+								className="nav__link"
+							>Counter</NavLink>
+						</li>
 					</ul>
 				</nav>
 
@@ -85,6 +92,11 @@ class App extends Component {
 					<Route
 						path="/cars"
 						component={ Cars }
+					/>
+
+					<Route
+						path="/counter"
+						component={ CounterNew }
 					/>
 
 					{/*<Route*/}
