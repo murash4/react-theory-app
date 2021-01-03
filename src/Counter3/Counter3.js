@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import './Counter3.scss'
 import { connect } from 'react-redux'
+import { add3 } from "../redux/actions/actions";
 
 class Counter3 extends Component {
 	render () {
@@ -23,10 +24,7 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
 	return {
-		onChange: number => dispatch({
-			type: 'ADD3',
-			payload: number
-		})
+		onChange: number => dispatch(add3(number))
 	}
 }
 
