@@ -12,6 +12,10 @@ class CounterNew extends Component {
 					<button onClick={ this.props.onAdd }>Добавить 1</button>
 					<button onClick={ this.props.onSub }>Вычесть 1</button>
 				</div>
+				<div className="CounterNew__actions">
+					<button onClick={ () => this.props.onAddNumber(15) }>Добавить 15</button>
+					<button onClick={ () => this.props.onAddNumber(-17) }>Вычесть 17</button>
+				</div>
 			</div>
 		)
 	}
@@ -30,6 +34,10 @@ function mapDispatchToProps (dispatch) {
 		}),
 		onSub: () => dispatch({
 			type: 'SUB'
+		}),
+		onAddNumber: number => dispatch({
+			type: 'ADD_NUMBER',
+			payload: number
 		})
 	}
 }
